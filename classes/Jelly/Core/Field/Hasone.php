@@ -8,7 +8,7 @@
  * @copyright  (c) 2010-2011 Jonathan Geiger
  * @license    http://www.opensource.org/licenses/isc-license.txt
  */
-abstract class Jelly_Core_Field_HasOne extends Jelly_Field implements Jelly_Field_Supports_With, Jelly_Field_Supports_Save {
+abstract class Jelly_Core_Field_Hasone extends Jelly_Field implements Jelly_Field_Supports_With, Jelly_Field_Supports_Save {
 
 	/**
 	 * @var  boolean  Ffalse, since this field does not map directly to a column

@@ -122,9 +122,7 @@ abstract class Jelly_Core {
 
 		// fix case, ex. jelly_field_hasone -> Jelly_Field_Hasone (not HasOne!)
 		$field = strtolower($field);
-		$field = str_replace('_', ' ', $field);
-		$field = ucfirst($field);
-		$field = str_replace(' ', '_', $field);
+		$field = str_replace(' ', '_', ucwords(str_replace('_', ' ', $field)));
 
 		return new $field($options);
 	}
@@ -164,7 +162,9 @@ abstract class Jelly_Core {
 			return TRUE;
 		}
 
-		 // Can we find the class?
+		$class = str_replace(' ', '_', ucwords(str_replace('_', ' ', $class)));
+
+		// Can we find the class?
 		if (class_exists($class))
 		{
 			// Prevent accidentally trying to load ORM or Sprig models

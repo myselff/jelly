@@ -196,6 +196,8 @@ abstract class Jelly_Core_Meta {
 		{
 			$builder = Jelly::model_prefix().'builder_'.$model;
 
+			$builder = str_replace(' ', '_', ucwords(str_replace('_', ' ', $builder)));
+
 			if (class_exists($builder))
 			{
 				$this->_builder = $builder;
