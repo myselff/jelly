@@ -337,8 +337,14 @@ abstract class Jelly_Core_Builder extends Database_Query_Builder_Select {
 	 * @param  string|null  $type
 	 * @return string
 	 */
-	public function compile(Database $db, $type = NULL)
+	public function compile($db = NULL, $type = NULL)
 	{
+		if ( ! is_object($db))
+		{
+			// Get the database instance
+			$db = Database::instance($db);
+		}
+
 		$type === NULL AND $type = $this->_type;
 
 		// Select all of the columns for the model if we haven't already

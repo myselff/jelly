@@ -120,6 +120,12 @@ abstract class Jelly_Core {
 	{
 		$field = Jelly::$_field_prefix.$type;
 
+		// fix case, ex. jelly_field_hasone -> Jelly_Field_Hasone (not HasOne!)
+		$field = strtolower($field);
+		$field = str_replace('_', ' ', $field);
+		$field = ucfirst($field);
+		$field = str_replace(' ', '_', $field);
+
 		return new $field($options);
 	}
 
