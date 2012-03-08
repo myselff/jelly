@@ -138,6 +138,10 @@ abstract class Jelly_Core {
 	{
 		$behavior = Jelly::$_behavior_prefix.$type;
 
+		// fix case, ex. jelly_field_hasone -> Jelly_Field_Hasone (not HasOne!)
+		$behavior = strtolower($behavior);
+		$behavior = str_replace(' ', '_', ucwords(str_replace('_', ' ', $behavior)));
+
 		return new $behavior($options);
 	}
 
