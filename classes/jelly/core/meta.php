@@ -638,6 +638,22 @@ abstract class Jelly_Core_Meta {
 	}
 
 	/**
+	 * Gets the model's parent model
+	 *
+	 * @param   Jelly_Field  $parent
+	 * @return  array
+	 */
+	public function parent(Jelly_Field $parent = NULL)
+	{
+		if (func_num_args() == 0)
+		{
+			return $this->_parent;
+		}
+
+		return $this->_parent = $parent;
+	}
+
+	/**
 	 * Gets or sets the object's sorting properties
 	 *
 	 * @param   array|null  $value
