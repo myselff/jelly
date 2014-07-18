@@ -41,6 +41,8 @@ abstract class Jelly_Core_Field_Belongsto extends Jelly_Field implements Jelly_F
 	 */
 	public $foreign = '';
 
+	public $with = array();
+
 	/**
 	 * Automatically sets foreign to sensible defaults.
 	 *
@@ -106,9 +108,17 @@ abstract class Jelly_Core_Field_Belongsto extends Jelly_Field implements Jelly_F
 	 */
 	public function get($model, $value)
 	{
-		return Jelly::query($this->foreign['model'])
-		            ->where($this->foreign['model'].'.'.$this->foreign['field'], '=', $value)
-		            ->limit(1);
+		$query = Jelly::query($this->foreign['model'])
+            ->where($this->foreign['model'].'.'.$this->foreign['field'], '=', $value)
+            ->limit(1);
+
+        if (count($this->with)) {
+        	foreach ($this->with as $i) {
+        		$query->with($i);
+        	}
+        }
+
+        return $query;
 	}
 
 	/**
