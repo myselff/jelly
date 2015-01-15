@@ -5,7 +5,7 @@
         "homepage":    "",
         "license":     "Apache-2.0",
         "keywords":    ["kohana", "framework", "database", "jelly", "ORM"],
-        "authors": []
+        "authors": [],
         "require": {
                 "composer/installers": "~1.0",
                 "kohana/core":         ">=3.3",
