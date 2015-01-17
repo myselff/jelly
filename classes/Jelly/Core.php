@@ -208,7 +208,7 @@ abstract class Jelly_Core {
 		}
 		else
 		{
-			return strtolower(Jelly::$_model_prefix.$model);
+			return Jelly::$_model_prefix. implode('_', array_map('ucfirst', explode('_', $model)));
 		}
 	}
 
